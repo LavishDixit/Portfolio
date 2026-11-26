@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#eef6f3; --bg2:#ffffff; --line:#cfe0da; --text:#0a2a2c; --muted:#4f6b6c;
-  --violet:#0b6b66; --hi:#bdf0d9;
+  --bg:#f3f5f8; --bg2:#ffffff; --line:#d8dde6; --text:#0d1b2e; --muted:#566277;
+  --violet:#2346f5; --hi:#ffe14d;
   --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
   --body:'Figtree','Segoe UI',system-ui,sans-serif;
   color-scheme:light;
@@ -27,7 +27,7 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--violet);z-index:30}
-nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(238,246,243,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(243,245,248,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{font:800 1.15rem var(--display);text-decoration:none}
 nav ul{display:flex;gap:26px;list-style:none}
@@ -36,7 +36,7 @@ nav ul a:hover{color:var(--text)}
 .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);transition:transform .2s,background .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn.main{background:var(--violet);border-color:var(--violet);color:#fff}
-.btn.main:hover{background:#08524e}
+.btn.main:hover{background:#1a37c9}
 .btn.ghost:hover{background:var(--bg2)}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:60px}
@@ -59,23 +59,24 @@ h2{font:800 clamp(2rem,5vw,3.2rem)/1.05 var(--display);letter-spacing:-.02em;mar
 
 .about{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
 .about p+p{margin-top:16px}
-.facts{display:grid;gap:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:30px}
+.photo{width:100%;max-width:380px;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:24px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(13,27,46,.12);justify-self:end}
 .fact{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
 .fact strong{display:block;font:800 2rem/1.1 var(--display)}
 .fact span{color:var(--muted);font-size:.95rem}
 
 .stack{padding-bottom:40px}
-.card{position:sticky;top:calc(84px + var(--i) * 26px);background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:34px;margin-bottom:34px;box-shadow:0 -14px 30px rgba(10,42,44,.10)}
+.card{position:sticky;top:calc(84px + var(--i) * 26px);background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:34px;margin-bottom:34px;box-shadow:0 -14px 30px rgba(13,27,46,.10)}
 .card:nth-child(even){background:var(--bg2)}
 .card h3{font:700 clamp(1.4rem,3vw,2rem)/1.15 var(--display);letter-spacing:-.01em}
 .when{color:var(--muted);font-size:.92rem;margin:6px 0 14px}
-.tag{display:inline-block;margin-left:10px;padding:2px 12px;background:var(--hi);border:1px solid #7fd3b2;color:var(--text);border-radius:999px;font:600 .78rem var(--body);vertical-align:middle}
+.tag{display:inline-block;margin-left:10px;padding:2px 12px;background:var(--hi);color:var(--text);border-radius:999px;font:600 .78rem var(--body);vertical-align:middle}
 .why{font-style:italic;color:var(--muted);margin-bottom:16px;max-width:42em}
 .card ul{padding-left:20px;max-width:46em}
 .card li{margin-bottom:9px}
 .card li::marker{color:var(--violet)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chips span{padding:4px 12px;border-radius:999px;background:#dcf1e9;color:#0a5a56;font-size:.86rem}
+.chips span{padding:4px 12px;border-radius:999px;background:#e8edff;color:#1b36c4;font-size:.86rem}
 .links{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
 .links a{font-weight:600;color:var(--violet);text-underline-offset:4px}
 
@@ -98,6 +99,7 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;padding:34px 0 50px
 @media (max-width:760px){
   nav ul{display:none}
   .about{grid-template-columns:1fr}
+  .photo{justify-self:start;max-width:300px}
   .card{padding:24px;top:calc(76px + var(--i) * 16px)}
   #readout{left:24px;right:auto;text-align:left;bottom:14px}
 }
@@ -140,12 +142,13 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;padding:34px 0 50px
     <h2>Building AI that finds the right answer</h2>
     <p>I’m a pre-final year B.Tech student in Computer Science (AI &amp; Machine Learning) at VIT Bhopal. I like problems where the model is only one part: the data has to be cleaned, searched, cited and served fast.</p>
     <p>My projects cover hybrid retrieval, OCR for scanned Hindi documents, semantic caching and Chrome extensions backed by LLMs. I’m looking for an AI/ML Engineer or AI Engineer internship where I can ship production-grade systems.</p>
+    <div class="facts">
+      <div class="fact"><strong>8.32</strong><span>CGPA, VIT Bhopal (2027)</span></div>
+      <div class="fact"><strong>2,000+</strong><span>documents in my semantic search engine</span></div>
+      <div class="fact"><strong>13</strong><span>Indian languages in SummarAIze</span></div>
+    </div>
   </div>
-  <div class="facts">
-    <div class="fact"><strong>8.32</strong><span>CGPA at VIT Bhopal, graduating 2027</span></div>
-    <div class="fact"><strong>2,000+</strong><span>documents indexed in my semantic search engine</span></div>
-    <div class="fact"><strong>13</strong><span>Indian languages supported in SummarAIze</span></div>
-  </div>
+  <img class="photo" src="lavish.jpg" alt="Lavish Dixit, smiling, in a blue shirt and grey glasses" width="720" height="1081" loading="lazy">
 </div></section>
 
 <section id="projects"><div class="wrap">
@@ -252,7 +255,7 @@ addEventListener('scroll',prog,{passive:true});prog();
 (function(){
   var cv=document.getElementById('space'),cx=cv.getContext('2d'),out=document.getElementById('readout');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var topics=['RAG','OCR','Embeddings','Agents','APIs'],cols=['#8fb5af','#7fa9a3','#a2c2bd','#6f9c96','#b3cfca'];
+  var topics=['RAG','OCR','Embeddings','Agents','APIs'],cols=['#9aa9d4','#8fa0cf','#a9b6dc','#7f95c9','#b4bfe0'];
   var W,H,dpr,pts=[],q={x:0,y:0,on:false,user:false},t=0;
   function gauss(){return Math.random()+Math.random()+Math.random()-1.5}
   function build(){
@@ -276,15 +279,15 @@ addEventListener('scroll',prog,{passive:true});prog();
     pts.forEach(function(p){
       var hit=set.indexOf(p)>-1;
       cx.beginPath();cx.arc(p.x,p.y,hit?5:2.6,0,6.28);
-      cx.fillStyle=hit?'#0b6b66':cols[p.c];cx.globalAlpha=hit?1:.75;cx.fill();
+      cx.fillStyle=hit?'#2346f5':cols[p.c];cx.globalAlpha=hit?1:.75;cx.fill();
     });
     cx.globalAlpha=1;
     if(q.on){
       near.forEach(function(n){
         cx.beginPath();cx.moveTo(q.x,q.y);cx.lineTo(n.p.x,n.p.y);
-        cx.strokeStyle='rgba(11,107,102,.45)';cx.lineWidth=1.2;cx.stroke();
+        cx.strokeStyle='rgba(35,70,245,.45)';cx.lineWidth=1.2;cx.stroke();
       });
-      cx.beginPath();cx.arc(q.x,q.y,9,0,6.28);cx.strokeStyle='#0b6b66';cx.lineWidth=2;cx.stroke();
+      cx.beginPath();cx.arc(q.x,q.y,9,0,6.28);cx.strokeStyle='#2346f5';cx.lineWidth=2;cx.stroke();
       var cnt={};near.forEach(function(n){var k=topics[n.p.c];cnt[k]=(cnt[k]||0)+1});
       out.innerHTML='query → top 5 neighbours: <b>'+Object.keys(cnt).map(function(k){return k+' ×'+cnt[k]}).join(', ')+'</b>';
     }
